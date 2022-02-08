@@ -76,8 +76,9 @@ class Sankari(Olento):
     Julkiset metodit
         arvo_hurraus()
     """
-    def __init__(self, nimi):
+    def __init__(self, nimi, rohkeus1 = 5, rohkeus2 = 9, katsenvoima1 = 2, katsenvoima2 = 5):
         self.nimi = nimi
+        super().__init__(rohkeus1, rohkeus2, katsenvoima1, katsenvoima2)
 
     def arvo_hurraus():
         return random.choice(RIEMUTAVUT)
@@ -147,7 +148,26 @@ def tuijota(olio1, olio2):
         rapayttaja.rohkeus -= katse2
     return rapayttaja
 
-
+def tujiota(olio1, olio2):
+    
+    #olio1 ja olio2 taistelee keskenään kerran.
+    
+    print("oliot tuijottavat toisiaan...")
+    time.sleep(1)
+    katse1 = random.randint(0, olio1.katsenvoima)
+    katse2 = random.randint(0, olio2.katsenvoima)
+    rapayttaja = none
+    
+    #heikompi arvottu häviää
+    if katse1 > katse2:
+        rapayttaja = olio2
+        rapayttaja.rohkeus -= katse1
+    else:
+        rapayttaja = olio1
+        rapayttaja.rohkeus -= katse2
+    return rapayttaja
+    
+    
 def taistele(vasen, oikea):
     """Asettaa annetut oliot taistelemaan keskenään, kunnes toinen voittaa.
 
