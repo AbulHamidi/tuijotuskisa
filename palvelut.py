@@ -8,8 +8,8 @@ class Asiakas:
     __ika: int
 
     def __init__(self, nimi, ika) -> None:
-        self.__nimi = nimi
         self.__ika = ika
+        self.__nimi = nimi
         self.__luo_nro()
 
 
